@@ -1,1 +1,1 @@
-# use-pi3bplus-for-facial-recognition
+# pi3bplus-for-facial-recognition
