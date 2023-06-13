@@ -5,7 +5,6 @@ import imutils
 import pickle
 import time
 import cv2
-import requests
 import pygame
 
 #Initialize 'currentname' to trigger only when a new person is identified.
@@ -16,11 +15,10 @@ encodingsP = "encodings.pickle"
 cascade = "haarcascade_frontalface_default.xml"
 
 # load the known faces and embeddings along with OpenCV's Haarcascade for face detection
-print("[INFO] loading encodings + face detector...")
+print("[INFO] loading ...")
 data = pickle.loads(open(encodingsP, "rb").read())
 detector = cv2.CascadeClassifier(cascade)
 
-# initialize the video stream and allow the camera to warm up
 print("[INFO] starting video stream...")
 vs = VideoStream(usePiCamera=True).start()
 time.sleep(2.0)
@@ -30,7 +28,6 @@ fps = FPS().start()
 
 # loop over frames from the video file stream
 while True:
-	# grab the frame from the threaded video stream and resize it to 500px (to speedup processing)
 	frame = vs.read()
 	frame = imutils.resize(frame, width=500)
 	
@@ -52,8 +49,7 @@ while True:
 
 	# loop over the facial embeddings
 	for encoding in encodings:
-		# attempt to match each face in the input image to our known
-		# encodings
+		# attempt to match each face in the input image to our known encodings
 		matches = face_recognition.compare_faces(data["encodings"],
 			encoding)
 		name = "Unknown"
@@ -80,7 +76,7 @@ while True:
 				pygame.init()
 				pygame.mixer.music.load('sound.wav')
 				pygame.mixer.music.play()
-				
+				time.sleep(5.0)
 		# update the list of names
 		names.append(name)
 	# loop over the recognized faces
@@ -106,7 +102,7 @@ while True:
 # stop the timer and display FPS information
 fps.stop()
 print("[INFO] elasped time: {:.2f}".format(fps.elapsed()))
-print("[INFO] approx. FPS: {:.2f}".format(fps.fps()))
+print("[INFO] FPS: {:.2f}".format(fps.fps()))
 
 # do a bit of cleanup
 cv2.destroyAllWindows()
