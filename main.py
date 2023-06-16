@@ -25,6 +25,7 @@ time.sleep(2.0)
 
 # start the FPS counter
 fps = FPS().start()
+pygame.init()
 
 # loop over frames from the video file stream
 while True:
@@ -73,7 +74,6 @@ while True:
 			if currentname != name:
 				currentname = name
 				print(currentname)
-				pygame.init()
 				pygame.mixer.music.load('sound.wav')
 				pygame.mixer.music.play()
 				time.sleep(5.0)
