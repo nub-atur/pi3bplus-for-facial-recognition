@@ -22,7 +22,7 @@ while True:
         if k%256 == 27: # ESC pressed
             break
         elif k%256 == 32:
-            # SPACE pressed
+            # SPACE pressed, 10 pictures at least for working well
             img_name = "dataset/"+ name +"/image_{}.jpg".format(img_counter)
             cv2.imwrite(img_name, image)
             print("{} written!".format(img_name))
