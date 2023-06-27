@@ -4,5 +4,5 @@ Using raspberry pi 3b+ as the main processor. This system recognize face, show n
 Raspbian OS, Python
 
 # usage
-pip install facial_recognition
-pip install 
+- pip install face_recognition
+- pip install imutils
