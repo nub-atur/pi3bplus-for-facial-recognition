@@ -6,3 +6,7 @@ Raspbian OS, Python
 # usage
 - pip install face_recognition
 - pip install imutils
+- install code on your pi
+- run headshots.py and prepare your dataset
+- train model
+- run main.py 
