@@ -20,7 +20,7 @@ data = pickle.loads(open(encodingsP, "rb").read())
 detector = cv2.CascadeClassifier(cascade)
 
 print("[INFO] starting video stream...")
-vs = VideoStream(usePiCamera=True).start()
+vs = VideoStream(usePiCamera=True).start()    #using picamera 
 time.sleep(2.0)
 
 # start the FPS counter
